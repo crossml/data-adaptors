@@ -6,12 +6,12 @@ class InputAdaptor:
     def __init__(self,):
         pass
 
-    def fileAdaptor(local_file_path):
+    def fileAdaptor(self,local_file_path,cloud_name):
         try:
             extension = os.path.splitext(local_file_path)[-1].lower()
             if extension in EXTENSION_LIST:
-                return ['valid File Extension']
+                return (local_file_path,cloud_name)
             else:
                 raise TypeError("invalid file extension")
-        except FileNotFoundError:
-            return False
+        except FileNotFoundError:   
+            return ("file not found")
