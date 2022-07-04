@@ -4,7 +4,6 @@ test
 import os
 import boto3
 # from config import EXTENSION_LIST
-EXTENSION_LIST = ['.pdf', '.png', '.jpg', '.tif', '.jpeg']
 
 class InputAdaptor:
     """
