@@ -2,9 +2,6 @@
 Input File
 """
 import os
-import zipfile
-from urllib.parse import urlparse
-import requests
 import boto3
 from config import EXTENSION_LIST
 from config import S3_BUCKET_NAME
@@ -45,45 +42,3 @@ class InputAdaptor:
                     raise Exception("Sorry, invalid cloud ")
         except FileNotFoundError:
             print("file not found")
-
-    def zip_upload(self, zip_file, cloud_name):
-        '''
-        zip file upload Function
-        '''
-        try:
-            if zipfile.is_zipfile(zip_file):
-                with zipfile.ZipFile(zip_file, "r") as zip_file_name:
-                    for file_name in zip_file_name.namelist():
-                        extension = os.path.splitext(file_name)[-1].lower()
-                        if extension not in EXTENSION_LIST:
-                            raise Exception("Sorry, invalid zip file")
-
-                if cloud_name.lower() == 'aws':
-                    upload_file_to_s3(zip_file)
-                    print('upload success', INPUT_FILE_FOLDER+zip_file)
-                else:
-                    raise Exception("Sorry, invalid cloud ")
-            else:
-                raise Exception("Sorry, given File is not a zip file ")
-        except FileNotFoundError:
-            print("file not found")
-
-    def url_upload(self, link, colud_name):
-        """
-        url file upload Function
-        """
-        try:
-            url_object = requests.get(link, stream=True).raw
-            file_name = os.path.basename(urlparse(link).path)
-            extension = os.path.splitext(file_name)[-1].lower()
-            if extension in EXTENSION_LIST:
-                if colud_name.lower() == 'aws':
-                    S3.meta.client.upload_fileobj(
-                        url_object, S3_BUCKET_NAME, INPUT_FILE_FOLDER + file_name)
-                    print("Upload Successful", INPUT_FILE_FOLDER + file_name)
-                else:
-                    print('invalid cloud option')
-            else:
-                print("invalid url")
-        except IOError:
-            print("url not found")
