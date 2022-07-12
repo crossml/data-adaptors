@@ -24,6 +24,7 @@ class InputAdaptor:
                     S3.meta.client.upload_fileobj(
                         url_object, S3_BUCKET_NAME, INPUT_FILE_FOLDER + file_name)
                     print("Upload Successful", INPUT_FILE_FOLDER + file_name)
+                    return INPUT_FILE_FOLDER+file_name
                 else:
                     print('invalid cloud option')
             else:
