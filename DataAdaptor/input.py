@@ -24,6 +24,8 @@ class InputAdaptor:
                 if cloud_name.lower() == 'aws':
                     upload_file_to_s3(zip_file)
                     print('upload success', INPUT_FILE_FOLDER+zip_file)
+                    return INPUT_FILE_FOLDER+zip_file
+
                 else:
                     raise Exception("Sorry, invalid cloud ")
             else:
