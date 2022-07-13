@@ -39,7 +39,10 @@ class InputAdaptor:
         try:
             extension = os.path.splitext(local_file_path)[-1].lower()
             if extension in EXTENSION_LIST:
+                # check file extension is valid from specified extension list
                 if cloud_name.lower() == 'aws':
+                    # checking cloud name
+                    # calling function to save data to s3
                     upload_file_to_s3(local_file_path)
                     return INPUT_FILE_FOLDER+local_file_path
                 else:
