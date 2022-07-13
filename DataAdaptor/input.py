@@ -16,21 +16,12 @@ def upload_file_to_s3(local_file_path):
     Upload File to s3
     """
     try:
-        # checking if file is already exist in s3
-        res = S3.meta.client.list_objects_v2(Bucket=S3_BUCKET_NAME,
-                                             Prefix=INPUT_FILE_FOLDER +
-                                             os.path.basename(local_file_path),
-                                             MaxKeys=1)
-        if ('Contents' in res) is True:
-            print("file already exist in s3")
-            return False
-        else:
-            # saving file to s3
-            S3.meta.client.upload_file(
-                local_file_path, S3_BUCKET_NAME,INPUT_FILE_FOLDER+ os.path.basename(local_file_path))
-            print("Upload Successful", INPUT_FILE_FOLDER +
-                  os.path.basename(local_file_path))
-            return INPUT_FILE_FOLDER + os.path.basename(local_file_path)
+        # saving file to s3
+        S3.meta.client.upload_file(
+            local_file_path, S3_BUCKET_NAME, INPUT_FILE_FOLDER + os.path.basename(local_file_path))
+        print("Upload Successful", INPUT_FILE_FOLDER +
+              os.path.basename(local_file_path))
+        return INPUT_FILE_FOLDER + os.path.basename(local_file_path)
     except Exception as error:
         print(error)
 
