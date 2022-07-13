@@ -33,7 +33,7 @@ class InputAdaptor:
                     tmp_path = os.path.join('/tmp', os.path.basename(filename))
                     extension = os.path.splitext(tmp_path)[-1].lower()
                     if extension in EXTENSION_LIST:
-                        # check if valid allowed extension
+                        # check file extension is valid from specified extension list
                         if not os.path.exists(tmp_path):
                             # check if file already exist in tmp folder
                             with open(tmp_path, 'wb') as f:
@@ -41,9 +41,11 @@ class InputAdaptor:
                                 ftp.retrbinary('RETR %s' %
                                                filename, f.write)
                                 if cloud_name.lower() == 'aws':
+                                    # checking cloud name
                                     # calling function to save data to s3
                                     s3_file = upload_file_to_s3(tmp_path)
-                                    lst.append(s3_file) # appending s3's response to list
+                                    # appending s3's response to list
+                                    lst.append(s3_file)
                                 else:
                                     raise Exception("Sorry, invalid cloud ")
                         else:
