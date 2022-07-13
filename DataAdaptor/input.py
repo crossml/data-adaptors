@@ -43,15 +43,13 @@ class InputAdaptor:
                                 if cloud_name.lower() == 'aws':
                                     # calling function to save data to s3
                                     s3_file = upload_file_to_s3(tmp_path)
-                                    lst.append(s3_file)
+                                    lst.append(s3_file) # appending s3's response to list
                                 else:
                                     raise Exception("Sorry, invalid cloud ")
-                                # appending s3's response to list
                         else:
-                            print("file already exist in tmp folder ")
+                            return ("file already exist in tmp folder ")
                     else:
-                        raise Exception("Sorry, file format")
+                        return ("Sorry, file format")
             return lst
-            print(lst)
         except Exception as error:
-            print(error)
+            return error
