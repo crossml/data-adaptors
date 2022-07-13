@@ -22,13 +22,12 @@ class InputAdaptor:
                             raise Exception("Sorry, invalid zip file")
 
                 if cloud_name.lower() == 'aws':
-                    upload_file_to_s3(zip_file)
-                    print('upload success', INPUT_FILE_FOLDER+zip_file)
+                    upload_file_to_s3(zip_file)                    
                     return INPUT_FILE_FOLDER+zip_file
 
                 else:
-                    raise Exception("Sorry, invalid cloud ")
+                    return ("Sorry, invalid cloud ")
             else:
-                raise Exception("Sorry, given File is not a zip file ")
+                return ("Sorry, given File is not a zip file ")
         except FileNotFoundError:
-            print("file not found")
+            return ("file not found")
