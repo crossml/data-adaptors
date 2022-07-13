@@ -19,11 +19,9 @@ def upload_file_to_s3(local_file_path):
         # saving file to s3
         S3.meta.client.upload_file(
             local_file_path, S3_BUCKET_NAME, INPUT_FILE_FOLDER + os.path.basename(local_file_path))
-        print("Upload Successful", INPUT_FILE_FOLDER +
-              os.path.basename(local_file_path))
         return INPUT_FILE_FOLDER + os.path.basename(local_file_path)
     except Exception as error:
-        print(error)
+        return error
 
 
 class InputAdaptor:
@@ -43,10 +41,8 @@ class InputAdaptor:
             if extension in EXTENSION_LIST:
                 if cloud_name.lower() == 'aws':
                     upload_file_to_s3(local_file_path)
-                    print("Upload Successful",
-                          INPUT_FILE_FOLDER+local_file_path)
                     return INPUT_FILE_FOLDER+local_file_path
                 else:
                     raise Exception("Sorry, invalid cloud ")
         except FileNotFoundError:
-            print("file not found")
+            return ("file not found")
