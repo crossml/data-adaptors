@@ -23,11 +23,10 @@ class InputAdaptor:
                 if colud_name.lower() == 'aws':
                     S3.meta.client.upload_fileobj(
                         url_object, S3_BUCKET_NAME, INPUT_FILE_FOLDER + file_name)
-                    print("Upload Successful", INPUT_FILE_FOLDER + file_name)
                     return INPUT_FILE_FOLDER+file_name
                 else:
-                    print('invalid cloud option')
+                    return ('invalid cloud option')
             else:
-                print("invalid url")
+                return ("invalid url")
         except IOError:
-            print("url not found")
+            return ("url not found")
