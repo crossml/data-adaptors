@@ -10,15 +10,15 @@ class TestInputMethods(unittest.TestCase):
 
     def ftp_method(self):
         """
-        test function
+        ftp test function
         """
         input_values = InputAdaptor()
-        inputFunc = input_values.ftp_upload(
-            '3.139.88.10', 'ftpuser', 'ftpuser', '/Payal_Sample/', 'aws')
-        # output values for comparision
-        output_values = "['list-of-input-files']"
+        # enter ftp host, username, password, ftp folder path, cloud name
+        inputfunc = input_values.ftp_upload('', '', '', '', '')
+        # enter list of output files present in ftp folder for comparision
+        output_values = ""
         # assertEqual() to check true of test value
-        self.assertEqual(inputFunc, output_values)
+        self.assertEqual(inputfunc, output_values)
 
 
 if __name__ == '__main__':
