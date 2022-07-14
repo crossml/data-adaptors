@@ -3,21 +3,21 @@ import unittest
 from input import InputAdaptor
 
 
-class TestStringMethods(unittest.TestCase):
+class TestInputMethods(unittest.TestCase):
     """
     test class
     """
 
-    def test_positive(self):
+    def ftp_method(self):
         """
         test function
         """
-        input_values = InputAdaptor()
-        testValue = input_values.zip_upload('test1.zip', 'Aws')
-        # enter desired output
-        message = "Temp/test1.zip"
+        inp = InputAdaptor()
+        inputFunc = inp.zip_upload('zip-file-name', 'Aws')
+        # output values for comparision
+        output_values = "Temp/zip-file-name"
         # assertEqual() to check true of test value
-        self.assertEqual(testValue, message)
+        self.assertEqual(inputFunc, output_values)
 
 
 if __name__ == '__main__':
