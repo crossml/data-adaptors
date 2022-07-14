@@ -10,13 +10,13 @@ class TestInputMethods(unittest.TestCase):
 
     def file_method(self):
         """
-        test function
+        file test function
         """
         inp = InputAdaptor()
-        inputFunc = inp.file_upload('file-name',  'Aws')
-        output_values = "Temp/file-name"  # output values for comparision
+        inputfunc = inp.file_upload('',  '')  # enter file and cloud name
+        output_values = ""  # enter output file name for comparision
         # assertEqual() to check true of test value
-        self.assertEqual(inputFunc, output_values)
+        self.assertEqual(inputfunc, output_values)
 
 
 if __name__ == '__main__':
