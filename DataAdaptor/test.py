@@ -8,16 +8,16 @@ class TestInputMethods(unittest.TestCase):
     test class
     """
 
-    def ftp_method(self):
+    def zip_method(self):
         """
-        test function
+        zip test function
         """
         inp = InputAdaptor()
-        inputFunc = inp.zip_upload('zip-file-name', 'Aws')
-        # output values for comparision
-        output_values = "Temp/zip-file-name"
+        inputfunc = inp.zip_upload('', '') #enter zip file and cloud name
+        # enter output file name for comparision
+        output_values = ""
         # assertEqual() to check true of test value
-        self.assertEqual(inputFunc, output_values)
+        self.assertEqual(inputfunc, output_values)
 
 
 if __name__ == '__main__':
