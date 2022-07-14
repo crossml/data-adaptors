@@ -3,21 +3,20 @@ import unittest
 from test import InputAdaptor
 
 
-class TestStringMethods(unittest.TestCase):
+class TestInputMethods(unittest.TestCase):
     """
     test class
     """
 
-    def test_positive(self):
+    def file_method(self):
         """
         test function
         """
         inp = InputAdaptor()
-        testValue = inp.file_upload('db.pdf',  'Aws')
-        # enter desired output
-        message = "Temp/db.pdf"
+        inputFunc = inp.file_upload('file-name',  'Aws')
+        output_values = "Temp/file-name"  # output values for comparision
         # assertEqual() to check true of test value
-        self.assertEqual(testValue, message)
+        self.assertEqual(inputFunc, output_values)
 
 
 if __name__ == '__main__':
