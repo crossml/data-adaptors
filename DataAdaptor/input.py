@@ -2,10 +2,13 @@
 Input File
 """
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import ftplib
 from contextlib import closing
 =======
+=======
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
 import requests
 import os
 import boto3
@@ -32,6 +35,9 @@ def upload_file_to_s3(local_file_path):
         return error
 
 
+<<<<<<< HEAD
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
+=======
 >>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
 
 
@@ -39,6 +45,7 @@ class InputAdaptor:
     """
     Input Adaptor class
     """
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     def __init__(self):
@@ -86,6 +93,8 @@ class InputAdaptor:
         except Exception as error:
             return error
 =======
+=======
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
     def __init__(self):
         pass
         
@@ -161,4 +170,7 @@ class InputAdaptor:
 
         except FileNotFoundError:
             return ("file not found")
+<<<<<<< HEAD
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
+=======
 >>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b

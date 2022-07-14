@@ -3,7 +3,10 @@ import unittest
 from input import InputAdaptor
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
 =======
 >>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
 class TestInputMethods(unittest.TestCase):
@@ -11,6 +14,7 @@ class TestInputMethods(unittest.TestCase):
     test class
     """
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     def ftp_method(self):
         """
@@ -22,6 +26,8 @@ class TestInputMethods(unittest.TestCase):
         # enter list of output files present in ftp folder for comparision
         output_values = ""
 =======
+=======
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
     def zip_method(self):
         """
         zip test function
@@ -51,6 +57,9 @@ class TestInputMethods(unittest.TestCase):
         output_values = ""  # enter output file name for comparision
 
 
+<<<<<<< HEAD
+>>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
+=======
 >>>>>>> bb27d4a48f36197265e7fe4155ece367de86d38b
         # assertEqual() to check true of test value
         self.assertEqual(inputfunc, output_values)
