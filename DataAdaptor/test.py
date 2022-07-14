@@ -10,15 +10,15 @@ class TestInputMethods(unittest.TestCase):
 
     def url_method(self):
         """
-        test function
+        url test function
         """
         input_values = InputAdaptor()
-        inputFunc = input_values.url_upload(
-            'file-url', 'Aws')
-        #  output values for comparision
-        output_values = "Temp/file-url-object-name"
+        inputfunc = input_values.url_upload(
+            '', '')  # enter url and cloud name
+        # enter output file name for comparision
+        output_values = ""
         # assertEqual() to check true of test value
-        self.assertEqual(inputFunc, output_values)
+        self.assertEqual(inputfunc, output_values)
 
 
 if __name__ == '__main__':
