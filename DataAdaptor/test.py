@@ -2,12 +2,19 @@
 import unittest
 from input import InputAdaptor
 
-
-
 class TestInputMethods(unittest.TestCase):
     """
     test class
     """
+
+    def zip_method(self):
+        """
+        zip test function
+        """
+        inp = InputAdaptor()
+        inputfunc = inp.zip_upload('', '') #enter zip file and cloud name
+        # enter output file name for comparision
+        output_values = ""
 
 
     def url_method(self):
@@ -27,6 +34,7 @@ class TestInputMethods(unittest.TestCase):
         inp = InputAdaptor()
         inputfunc = inp.file_upload('',  '')  # enter file and cloud name
         output_values = ""  # enter output file name for comparision
+
 
         # assertEqual() to check true of test value
         self.assertEqual(inputfunc, output_values)

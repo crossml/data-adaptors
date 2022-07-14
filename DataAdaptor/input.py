@@ -1,10 +1,11 @@
 """
 Input File
 """
-from urllib.parse import urlparse
 import requests
 import os
 import boto3
+import zipfile
+from urllib.parse import urlparse
 from config import EXTENSION_LIST
 from config import S3_BUCKET_NAME
 from config import INPUT_FILE_FOLDER
@@ -27,12 +28,42 @@ def upload_file_to_s3(local_file_path):
 
 
 
+
 class InputAdaptor:
     """
     Input Adaptor class
     """
     def __init__(self):
         pass
+        
+        
+    def zip_upload(self, zip_file, cloud_name):
+        '''
+        zip file upload Function
+        '''
+        try:
+            if zipfile.is_zipfile(zip_file):
+                # checking given file is zip
+                with zipfile.ZipFile(zip_file, "r") as zip_file_name:
+                    # reading zip file
+                    for file_name in zip_file_name.namelist():
+                        # extracting files from zip
+                        extension = os.path.splitext(file_name)[-1].lower()
+                        if extension not in EXTENSION_LIST:
+                            # checking if any invalid extension file in present in zip file
+                            raise Exception("Sorry, invalid zip file")
+
+                if cloud_name.lower() == 'aws':
+                    #checking cloud name
+                    upload_file_to_s3(zip_file)                    
+                    return INPUT_FILE_FOLDER+zip_file
+
+                else:
+                    return ("Sorry, invalid cloud ")
+            else:
+                return ("Sorry, given File is not a zip file ")
+
+    
 
     def url_upload(self, link, colud_name):
         """
@@ -74,5 +105,6 @@ class InputAdaptor:
                     return INPUT_FILE_FOLDER+local_file_path
                 else:
                     raise Exception("Sorry, invalid cloud ")
+
         except FileNotFoundError:
             return ("file not found")
