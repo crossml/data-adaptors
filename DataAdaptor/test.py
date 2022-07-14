@@ -3,10 +3,12 @@ import unittest
 from input import InputAdaptor
 
 
+
 class TestInputMethods(unittest.TestCase):
     """
     test class
     """
+
 
     def url_method(self):
         """
@@ -17,6 +19,15 @@ class TestInputMethods(unittest.TestCase):
             '', '')  # enter url and cloud name
         # enter output file name for comparision
         output_values = ""
+
+    def file_method(self):
+        """
+        file test function
+        """
+        inp = InputAdaptor()
+        inputfunc = inp.file_upload('',  '')  # enter file and cloud name
+        output_values = ""  # enter output file name for comparision
+
         # assertEqual() to check true of test value
         self.assertEqual(inputfunc, output_values)
 
