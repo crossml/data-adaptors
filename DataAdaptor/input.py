@@ -48,10 +48,6 @@ class InputAdaptor:
                                     lst.append(s3_file)
                                 else:
                                     raise Exception("Sorry, invalid cloud ")
-                        else:
-                            return ("file already exist in tmp folder ")
-                    else:
-                        return ("Sorry, file format")
             return lst
         except Exception as error:
             return error
