@@ -9,9 +9,11 @@ from urllib.parse import urlparse
 import zipfile
 import requests
 import boto3
-from config import EXTENSION_LIST
+from .config import EXTENSION_LIST
 from config import S3_BUCKET_NAME
-from config import INPUT_FILE_FOLDER
+from .config import INPUT_FILE_FOLDER
+
+
 
 SESSION = boto3.Session()
 S3 = SESSION.resource('s3')
