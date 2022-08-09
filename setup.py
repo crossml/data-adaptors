@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="data_adaptor",
-    version="0.1.4",
+    version="0.1.5",
     author="Crossml",
     author_email="amar@crossml.com",
     packages=setuptools.find_packages(),

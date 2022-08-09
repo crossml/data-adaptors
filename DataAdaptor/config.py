@@ -1,2 +1,2 @@
 EXTENSION_LIST = ['.pdf', '.png', '.jpg', '.tif', '.jpeg']
-INPUT_FILE_FOLDER = 'Temp/'
+INPUT_FILE_FOLDER = '/tmp/'
