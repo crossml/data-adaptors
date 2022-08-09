@@ -13,6 +13,7 @@ from config import EXTENSION_LIST
 from config import S3_BUCKET_NAME
 from config import INPUT_FILE_FOLDER
 
+
 SESSION = boto3.Session()
 S3 = SESSION.resource('s3')
 
@@ -49,10 +50,10 @@ class InputAdaptor:
                 if cloud_name.lower() == 'aws':
                     # checking cloud name
                     # calling function to save data to s3
-                    upload_file_to_s3(local_file_path)
-                    return INPUT_FILE_FOLDER+local_file_path
+                    file_path = upload_file_to_s3(local_file_path)
+                    return file_path
                 else:
-                    raise Exception("Sorry, invalid cloud")
+                    return Exception("Sorry, invalid cloud")
         except FileNotFoundError:
             return "file not found"
 
@@ -74,8 +75,8 @@ class InputAdaptor:
 
                 if cloud_name.lower() == 'aws':
                     # checking cloud name
-                    upload_file_to_s3(zip_file)
-                    return INPUT_FILE_FOLDER+zip_file
+                    file_path = upload_file_to_s3(zip_file)
+                    return file_path
 
                 else:
                     return "Sorry, invalid cloud"
@@ -142,6 +143,10 @@ class InputAdaptor:
                                     lst.append(s3_file)
                                 else:
                                     raise Exception("Sorry, invalid cloud ")
+                        else:
+                            return "file already exist in tmp folder"
+                    else:
+                        return "Sorry, file format"
             return lst
         except Exception as error:
             return error
